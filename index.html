@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Chen — Embedded Firmware</title>
+<style>
+  :root {
+    --ink: #1c1c1c;      /* body text */
+    --faint: #6b6b6b;    /* dates and metadata */
+    --rule: #d9d9d9;     /* hairlines */
+    --link: #0b5aa4;     /* the only color on the page */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+    max-width: 42rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .tagline { color: var(--faint); margin: 0 0 0.75rem; }
+  .contact {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+  }
+  .contact a { margin-right: 0.9rem; }
+  h2 {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 2.6rem 0 0.9rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h2::before { content: "// "; color: var(--faint); }
+  p { margin: 0.6rem 0; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  ul { padding-left: 1.1rem; margin: 0.6rem 0; }
+  li { margin: 0.7rem 0; }
+  .when {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+  .item b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Marco Chen</h1>
+  <p class="tagline">Embedded firmware &amp; Linux kernel — EE junior at The Cooper Union</p>
+  <p class="contact">
+    <a href="mailto:marcochen.work@gmail.com">email</a>
+    <a href="https://github.com/Marco-Chen-06">github</a>
+    <a href="https://www.linkedin.com/in/marco-c2006/">linkedin</a>
+    <!-- LINK: your resume PDF. Commit Marco_Chen_Resume.pdf next to this file and this link works as-is. -->
+    <a href="Marco_Chen_Resume.pdf">resume</a>
+  </p>
+</header>
+
+<section>
+  <h2>about</h2>
+  <p> I like embedded systems. I will write more later. </p>
+</section>
+
+<section>
+  <h2>linux kernel</h2>
+  <ul>
+    <li class="item">
+      <b>max30102: NULL-pointer dereference fix</b> — the threaded IRQ handler dereferenced
+      <code>active_scan_mask</code> outside buffered mode; found and reproduced on hardware,
+      accepted after four revisions of maintainer review.
+      <!-- LINK: lore.kernel.org thread for the max30102 v4 patch -->
+      <a href="#">patch thread</a>
+    </li>
+    <li class="item">
+      <b>bma400: runtime power management</b> <span class="when">in progress</span> — implementing
+      runtime PM for the Bosch BMA400 accelerometer driver; design proposal in preparation for linux-iio.
+      <!-- LINK: lore.kernel.org thread for the applied documentation cleanup patch -->
+      <a href="#">first patch in the series</a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>projects</h2>
+  <ul>
+    <li class="item">
+      <b>OTA firmware update system</b> <span class="when">Aug 2026 – present</span> — device half of a
+      two-person A/B update system: stage-2 bootloader and linker scripts on STM32L4 dual-bank flash,
+      designed so power loss at any point leaves the previous image bootable. Work in progress. 
+      <!-- LINK: OTA / bootloader repo once it's public -->
+      <a href="#">repo</a>
+    </li>
+    <li class="item">
+      <b>MCP2518FD SPI-to-CAN driver</b> <span class="when">Feb – Apr 2026</span> — CAN 2.0 driver for
+      RP2350 written from the MCP25XXFD datasheets, for the Cooper Union IGVC vehicle.
+      <a href="https://github.com/Marco-Chen-06/spi-to-can-rp2350">repo</a>
+    </li>
+    <li class="item">
+      <b>STM32 health wearable</b> <span class="when">June – July 2026</span> — FreeRTOS system with
+      interrupt-driven I2C drivers for a BMI270 and MAX30102 and a fall-detection state machine;
+      written up as an IEEE-format report.
+      <!-- LINK: wearable repo -->
+      <a href="#">repo</a>
+    </li>
+    <li class="item">
+      <b>FreeRTOS+CLI debug shell</b> — runtime task inspection and priority control over UART on RP2350,
+      for the IGVC firmware team.
+      <!-- LINK: freertos-shell-rp2350 repo -->
+      <a href="#">repo</a>
+    </li>
+    <li class="item">
+      <b>Multi-process synchronization library</b> — spinlocks, semaphores, and a producer-consumer FIFO
+      over shared memory with signal-based sleep/wakeup.
+      <a href="https://github.com/Marco-Chen-06/synchronization-library">repo</a>
+    </li>
+    <li class="item">
+      <b>Bare-metal UART driver for RP2350</b> — registers configured directly from the datasheet,
+      written as an onboarding reference for the firmware team.
+      <a href="https://github.com/Marco-Chen-06/uart-driver-rp2350">repo</a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>guides</h2>
+  <ul>
+    <li class="item">
+      <b>Linux kernel development setup</b> — mailing lists, kernel configuration, cross-compilation.
+      <!-- LINK: your kernel dev guide (Google Doc/Sheet) -->
+      <a href="#">guide</a>
+    </li>
+    <li class="item">
+      <b>RP2350 debugging toolchain</b> — RP2040 as a CMSIS-DAP probe with OpenOCD and GDB, on Linux,
+      macOS, and Windows.
+      <!-- LINK: Pico toolchain guide -->
+      <a href="#">guide</a>
+    </li>
+  </ul>
+</section>
+
+</body>
+</html>
