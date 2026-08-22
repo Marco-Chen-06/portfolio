@@ -58,13 +58,13 @@
 
 <header>
   <h1>Marco Chen</h1>
-  <p class="tagline">Embedded firmware &amp; Linux kernel — EE junior at The Cooper Union</p>
+  <p class="tagline">Embedded firmware &amp; Linux kernel, EE junior at The Cooper Union</p>
   <p class="contact">
     <a href="mailto:marcochen.work@gmail.com">email</a>
     <a href="https://github.com/Marco-Chen-06">github</a>
     <a href="https://www.linkedin.com/in/marco-c2006/">linkedin</a>
     <!-- LINK: your resume PDF. Commit Marco_Chen_Resume.pdf next to this file and this link works as-is. -->
-    <a href="resumes/marco_resume_8_22_2026.pdf">resume</a>
+    <a href="resumes/marco_resume_8_22_2026.pdf" target="_blank" rel="noopener noreferrer">resume</a>
   </p>
 </header>
 
@@ -77,17 +77,17 @@
   <h2>linux kernel</h2>
   <ul>
     <li class="item">
-      <b>max30102: NULL-pointer dereference fix</b> — the threaded IRQ handler dereferenced
+      <b>max30102 NULL-pointer dereference fix</b> <span class="when">accepted, pending merge</span>: the threaded IRQ handler dereferenced
       <code>active_scan_mask</code> outside buffered mode; found and reproduced on hardware,
       accepted after four revisions of maintainer review.
       <!-- LINK: lore.kernel.org thread for the max30102 v4 patch -->
-      <a href="#">patch thread</a>
+      <a href="https://lore.kernel.org/linux-iio/20260810005340.638d6b1b@jic23-huawei/" target="_blank" rel="noopener noreferrer">accepted patch thread (v4)</a>
     </li>
     <li class="item">
-      <b>bma400: runtime power management</b> <span class="when">in progress</span> — implementing
+      <b>bma400: runtime power management</b> <span class="when">in progress</span>: implementing
       runtime PM for the Bosch BMA400 accelerometer driver; design proposal in preparation for linux-iio.
       <!-- LINK: lore.kernel.org thread for the applied documentation cleanup patch -->
-      <a href="#">first patch in the series</a>
+      <a href="https://lore.kernel.org/linux-iio/20260822025258.428c4db9@jic23-huawei/" target="_blank" rel="noopener noreferrer">first patch in the series</a>
     </li>
   </ul>
 </section>
@@ -96,39 +96,39 @@
   <h2>projects</h2>
   <ul>
     <li class="item">
-      <b>OTA firmware update system</b> <span class="when">Aug 2026 – present</span> — device half of a
+      <b>OTA firmware update system</b> <span class="when">Aug 2026 – present</span>: device half of a
       two-person A/B update system: stage-2 bootloader and linker scripts on STM32L4 dual-bank flash,
       designed so power loss at any point leaves the previous image bootable. Work in progress. 
       <!-- LINK: OTA / bootloader repo once it's public -->
-      <a href="#">repo</a>
+      <a href="https://github.com/Marco-Chen-06/stm32-bare-metal-blinky" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>MCP2518FD SPI-to-CAN driver</b> <span class="when">Feb – Apr 2026</span> — CAN 2.0 driver for
+      <b>MCP2518FD SPI-to-CAN driver</b> <span class="when">Feb – Apr 2026</span>: CAN 2.0 driver for
       RP2350 written from the MCP25XXFD datasheets, for the Cooper Union IGVC vehicle.
-      <a href="https://github.com/Marco-Chen-06/spi-to-can-rp2350">repo</a>
+      <a href="https://github.com/Marco-Chen-06/spi-to-can-rp2350" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>STM32 health wearable</b> <span class="when">June – July 2026</span> — FreeRTOS system with
+      <b>STM32 health wearable</b> <span class="when">June – July 2026</span>: FreeRTOS system with
       interrupt-driven I2C drivers for a BMI270 and MAX30102 and a fall-detection state machine;
       written up as an IEEE-format report.
       <!-- LINK: wearable repo -->
-      <a href="#">repo</a>
+      <a href="https://github.com/Marco-Chen-06/stm32-health-wearable" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>FreeRTOS+CLI debug shell</b> — runtime task inspection and priority control over UART on RP2350,
+      <b>FreeRTOS+CLI debug shell</b>: runtime task inspection and priority control over UART on RP2350,
       for the IGVC firmware team.
       <!-- LINK: freertos-shell-rp2350 repo -->
-      <a href="#">repo</a>
+      <a href="https://github.com/Marco-Chen-06/freertos-shell-rp2350/tree/feat/simple-shell" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>Multi-process synchronization library</b> — spinlocks, semaphores, and a producer-consumer FIFO
+      <b>Multi-process synchronization library</b>: spinlocks, semaphores, and a producer-consumer FIFO
       over shared memory with signal-based sleep/wakeup.
-      <a href="https://github.com/Marco-Chen-06/synchronization-library">repo</a>
+      <a href="https://github.com/Marco-Chen-06/synchronization-library" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>Bare-metal UART driver for RP2350</b> — registers configured directly from the datasheet,
+      <b>Bare-metal UART driver for RP2350</b>: registers configured directly from the datasheet,
       written as an onboarding reference for the firmware team.
-      <a href="https://github.com/Marco-Chen-06/uart-driver-rp2350">repo</a>
+      <a href="https://github.com/Marco-Chen-06/uart-driver-rp2350" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
   </ul>
 </section>
@@ -137,15 +137,15 @@
   <h2>guides</h2>
   <ul>
     <li class="item">
-      <b>Linux kernel development setup</b> — mailing lists, kernel configuration, cross-compilation.
+      <b>Linux kernel development setup</b>: mailing lists, kernel configuration, cross-compilation.
       <!-- LINK: your kernel dev guide (Google Doc/Sheet) -->
-      <a href="#">guide</a>
+      <a href="https://docs.google.com/spreadsheets/d/1lReN7vJUlQVeZWqXoiErh6ZiUwfWph-Py6hJhDk4koU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">guide/command dump</a>
     </li>
     <li class="item">
-      <b>RP2350 debugging toolchain</b> — RP2040 as a CMSIS-DAP probe with OpenOCD and GDB, on Linux,
+      <b>RP2350 debugging toolchain</b>: RP2040 as a CMSIS-DAP probe with OpenOCD and GDB, on Linux,
       macOS, and Windows.
       <!-- LINK: Pico toolchain guide -->
-      <a href="#">guide</a>
+      <a href="https://docs.google.com/spreadsheets/d/1uM1R28ealxZX4H0J--lUa3P9RRsrfEPFHdEjg2dOlPw/edit?usp=sharing" target="_blank" rel="noopener noreferrer">guide/command dump</a>
     </li>
   </ul>
 </section>
