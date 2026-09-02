@@ -6,10 +6,12 @@
 <title>Marco Chen Portfolio</title>
 <style>
   :root {
+    --bg: #1E1E1E;       /* page background */
     --ink: #e2e8f0;      /* body text */
+    --bright: #f8fafc;   /* item titles */
     --faint: #94a3b8;    /* dates and metadata */
     --rule: #334155;     /* hairlines */
-    --link: #38bdf8;     /* the only color on the page */
+    --link: #38bdf8;
   }
   * { box-sizing: border-box; }
   body {
@@ -18,12 +20,14 @@
     max-width: 42rem;
     font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--ink);
-    background: #1E1E1E;
+    background: var(--bg);
   }
+  ::selection { background: var(--link); color: var(--bg); }
   h1 {
     font-size: 1.6rem;
     margin: 0 0 0.25rem;
     letter-spacing: -0.01em;
+    color: var(--bright);
   }
   .tagline { color: var(--faint); margin: 0 0 0.75rem; }
   .contact {
@@ -35,9 +39,10 @@
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-size: 0.95rem;
     font-weight: 600;
-    margin: 2.6rem 0 0.9rem;
+    margin: 2.8rem 0 1rem;
     padding-bottom: 0.35rem;
     border-bottom: 1px solid var(--rule);
+    color: var(--bright);
   }
   h2::before { content: "# "; color: var(--faint); }
   p { margin: 0.6rem 0; }
@@ -45,13 +50,19 @@
   a:hover, a:focus-visible { text-decoration: underline; }
   a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
   ul { padding-left: 1.1rem; margin: 0.6rem 0; }
-  li { margin: 0.7rem 0; }
+  li { margin: 1.1rem 0; }
+  li::marker { color: var(--rule); }
   .when {
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-size: 0.78rem;
     color: var(--faint);
   }
-  .item b { font-weight: 600; }
+  .item b { font-weight: 600; color: var(--bright); }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    color: var(--bright);
+  }
 </style>
 </head>
 <body>
@@ -60,36 +71,41 @@
   <h1>Marco Chen</h1>
   <p class="tagline">Embedded firmware &amp; Linux kernel | EE junior at The Cooper Union</p>
   <p class="contact">
-    <a href="mailto:marcochen.work@gmail.com">email</a>
-    <a href="https://github.com/Marco-Chen-06">github</a>
-    <a href="https://www.linkedin.com/in/marco-c2006/">linkedin</a>
+    <a href="mailto:marcochen.work@gmail.com" target="_blank" rel="noopener noreferrer">email</a>
+    <a href="https://github.com/Marco-Chen-06" target="_blank" rel="noopener noreferrer">github</a>
+    <a href="https://www.linkedin.com/in/marco-c2006/" target="_blank" rel="noopener noreferrer">linkedin</a>
     <a href="resumes/marco_resume_8_27_2026.pdf" target="_blank" rel="noopener noreferrer">resume</a>
   </p>
 </header>
 
 <section>
   <h2>about</h2>
-  <p> I am an electrical engineering junior at The Cooper Union focused on embedded firmware. </p>
+  <p>I am an electrical engineering junior at The Cooper Union focused on embedded firmware.</p>
 </section>
 
 <section>
   <h2>linux kernel</h2>
   <ul>
     <li class="item">
-      <b>max30102 NULL-pointer dereference fix</b> <span class="when">accepted, pending merge</span>: the threaded IRQ handler dereferenced
+      <b>max30102 NULL-pointer dereference fix</b> <span class="when">applied to the IIO tree</span>: the threaded IRQ handler dereferenced
       <code>active_scan_mask</code> outside buffered mode; found and reproduced on hardware,
       accepted after four revisions of maintainer review.
        <span style="white-space: nowrap">
-      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git/commit/?h=fixes-togreg&id=fdcb9bf4aca17bf7681831bae38891f3f091c560" target="_blank" rel="noopener noreferrer">commit</a> 
-      | <a href="https://lore.kernel.org/linux-iio/20260810005340.638d6b1b@jic23-huawei/t/#u" target="_blank" rel="noopener noreferrer">discussion</a>
+        <a href="https://lore.kernel.org/linux-iio/20260810005340.638d6b1b@jic23-huawei/t/#u" target="_blank" rel="noopener noreferrer">discussion</a>
       </span>
     </li>
     <li class="item">
       <b>bma400: runtime power management</b> <span class="when">in progress</span>: implementing
       runtime PM for the Bosch BMA400 accelerometer driver; design proposal is currently being drafted.
       <span style="white-space: nowrap">
-      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git/commit/?h=testing" target="_blank" rel="noopener noreferrer">commit</a> |
       <a href="https://lore.kernel.org/linux-iio/20260822025258.428c4db9@jic23-huawei/t/#u" target="_blank" rel="noopener noreferrer">discussion</a>
+      </span>
+    </li>
+    <li class="item">
+      <b>iio-scripts</b>: device tree overlays, sysfs test scripts, and userspace buffer
+      readers used to bring up IIO sensors on a Raspberry Pi 4 and reproduce driver bugs.
+      <span style="white-space: nowrap">
+      <a href="https://github.com/Marco-Chen-06/iio-scripts" target="_blank" rel="noopener noreferrer">repo</a>
       </span>
     </li>
   </ul>
@@ -101,8 +117,9 @@
     <li class="item">
       <b>OTA firmware update system</b> <span class="when">Aug 2026 – present</span>: device half of a
       two-person A/B update system: stage-2 bootloader and linker scripts on STM32L4 dual-bank flash,
-      designed so power loss at any point leaves the previous image bootable. Work in progress. 
-      <a href="https://github.com/Marco-Chen-06/stm32-bare-metal-blinky" target="_blank" rel="noopener noreferrer">repo</a>
+      designed so power loss at any point leaves the previous image bootable. Work in progress, but the 
+      toolchain that the bootloader builds on is linked. 
+      <a href="https://github.com/Marco-Chen-06/stm32-bare-metal-blinky" target="_blank" rel="noopener noreferrer">toolchain bring-up</a>
     </li>
     <li class="item">
       <b>MCP2518FD SPI-to-CAN driver</b> <span class="when">Feb – Apr 2026</span>: CAN 2.0 driver for
@@ -126,7 +143,7 @@
       <a href="https://github.com/Marco-Chen-06/synchronization-library" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
     <li class="item">
-      <b>Bare-metal UART driver for RP2350</b>: <span class="when">Oct – Nov 2025</span>: registers configured without the Pico SDK UART API, 
+      <b>Bare-metal UART driver for RP2350</b> <span class="when">Oct – Nov 2025</span>: registers configured without the Pico SDK UART API, 
       written as an onboarding reference for the firmware team.
       <a href="https://github.com/Marco-Chen-06/uart-driver-rp2350" target="_blank" rel="noopener noreferrer">repo</a>
     </li>
